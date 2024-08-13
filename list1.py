@@ -11,11 +11,13 @@
 # Given a list of strings, return the count of the number of
 # strings where the string length is 2 or more and the first
 # and last chars of the string are the same.
-# Note: python does not have a ++ operator, but += works.
-
+# Note: python does not have a ++ operator, but += works
 def match_ends(words):
-    # +++your code here+++
-    return
+    con=0
+    for i in words:
+        if len(i)>2 and i[0] == i[-1]:
+            con+=1
+    return con
 
 
 # B. front_x
@@ -27,8 +29,18 @@ def match_ends(words):
 # before combining them.
 
 def front_x(words):
-    # +++your code here+++
-    return
+
+  xlist = []
+  alist = []
+
+  for word in words:
+    if word.startswith('x'):
+      xlist.append(word)
+    else:
+      alist.append(word)
+
+  return sorted(xlist) + sorted(alist)
+
 
 
 # C. sort_last
@@ -39,8 +51,8 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 
 def sort_last(tuples):
-    # +++your code here+++
-    return
+    def last(t):return t[-1]
+    return sorted(tuples, key=last)
 
 
 # Simple provided test() function used in main() to print
